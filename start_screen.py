@@ -1,3 +1,5 @@
+import os
+
 start_screen = '''
        \   |    \    ___)   )  ____)  \    ___) |    \  |  | |    \       )   (   \    ___)
         |  |     |  (__    /  /  __    |  (__   |  |\ \ |  | |     |     /     \   |  (__
@@ -23,15 +25,24 @@ start_screen = '''
                     |  \__  |   __   |  ____)  )    |  |     |  |__   |  (___
                     _\    )_|  (__)  |_(      (_____|  |____/      )_/       )_by_Nikodem&Augustyn
 
-                                        Hello brave warrior!
-                                Our land is under oppressive rule of
-                            a dwarf who steers our King and his ministers
-                            from his castle. Everyone is doing  what  the
-                            dwarf tells them. Last hope in you! Go to the
+                                         Hello brave warrior!
+                                 Our land is under oppressive rule of
+                            a dwarf who  steers our King and his ministers
+                            from his castle.  Everyone is doing  what  the
+                            dwarf tells them.  Last hope in you! Go to the
                             castle and kill the dwarf! Release our kingdom.'''
 
 
-how_to_play = '''... '''  # sterowanie
+how_to_play = '''\nMovement:
+                w = move up
+a = move left   s = move down   d = move right
+
+Interaction:
+i = show inventory
+
+Combat:
+s = simple attack
+h = heavy attack'''  # sterowanie
 
 
 def main():
@@ -41,12 +52,12 @@ def main():
 How to play: c  ''')
         try:
             if start == 's':
-                pass  # tutaj przejście do gry
+                break
             elif start == 'c':
-                pass  # ekran ze sterowaniem
+                os.system('clear')
+                print(how_to_play)
         except:
             print("Wrong input! Only s/c characters available")
-        break
 
 
 main()
