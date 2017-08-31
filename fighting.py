@@ -157,7 +157,7 @@ def player_attack(player_strength, player_health, enemy_agility, enemy_level, en
 
 
 def hit_result(hit_chance):
-    random_int = random.randint(1,100)
+    random_int = random.randint(1, 100)
     if random_int > hit_chance:
         return False
     else:
