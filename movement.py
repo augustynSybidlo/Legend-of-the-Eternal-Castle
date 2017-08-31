@@ -18,7 +18,7 @@ def movement(direction, coordinates, board, current_tile):
 
 
 def check_tile_and_move(position_y, position_x, board, direction):
-    blocking_tiles = ["X"]
+    blocking_tiles = ["X", "|", "_", "#", "/"]
     enemies = ["W", "K", "O", "o"]
 
     if board[position_y][position_x] in blocking_tiles:
