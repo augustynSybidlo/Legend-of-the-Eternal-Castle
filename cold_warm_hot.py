@@ -43,10 +43,7 @@ def main():
         feedback = compare_user_answer(user_input, correct_answer)
         print(feedback)
         if feedback == ['hot', 'hot', 'hot']:
-            print("You won!")
-            break
+            return True
         user_guesses -= 1
+    return False
 
-
-if __name__ == '__main__':
-    main()
