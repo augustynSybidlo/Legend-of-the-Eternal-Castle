@@ -6,7 +6,7 @@ def add_to_inventory(inventory):
     weight_of_inventory = 0
     new_item = random_item.main()
     for i in inventory:
-        weight_of_inventory += i[2] 
+        weight_of_inventory += i[2]
     weight_of_inventory += new_item[2]
     if weight_of_inventory >= max_weight_of_inventory:
         print("You have not enought space in your inventory!")
@@ -25,4 +25,4 @@ def show_inventory(inventory):
     for element in inventory:
         print(str(element[2]).ljust(width_1), element[1].ljust(width_2), element[0].ljust(width_3))
     print("Total weight of items: %d".rjust(width_3) % weight_of_items)
-    input("Type anything to exit.")
+    input("Type anything to exit. ")
