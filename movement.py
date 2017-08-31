@@ -1,7 +1,8 @@
 def movement(direction, coordinates, board, current_tile):
     position_y = coordinates[0]
     position_x = coordinates[1]
-    board[position_y][position_x] = current_tile
+    if current_tile != "@":
+        board[position_y][position_x] = current_tile
     if direction == "w":
         position_y -= 1
     elif direction == "s":
