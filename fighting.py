@@ -71,12 +71,16 @@ def fight(player_stats, enemy_type, attack=False):
     if attack:
         print("You have attacked: ", enemy_type, "level: ", enemy_level)
         first_attack = True
-        while player_health >= 0 and enemy_health >= 0:
+        while True:
             attack_type = input("Choose action: s - simple attack, h - heavy attack")
             enemy_health, player_health = player_attack(player_strength, player_health, enemy_agility, enemy_level,
                                                         enemy_health, player_character, first_attack, attack_type)
+            if player_health <= 0 or enemy_health <= 0:
+                break
             first_attack = False
             player_health = enemy_attack(player_agility, enemy_strength, player_health)
+            if player_health <= 0 or enemy_health <= 0:
+                break
         if player_health <= 0:
             print("You have lost the fight! Lives - 1")
         elif player_health >= 0:
@@ -85,12 +89,16 @@ def fight(player_stats, enemy_type, attack=False):
 
     else:
         print("You have been attacked by: ", enemy_type, "level: ", enemy_level)
-        while player_health >= 0 and enemy_health >= 0:
-            attack_type = input("Choose action: s - simple attack, h - heavy attack")
+        while True:
             first_attack = False
             player_health = enemy_attack(player_agility, enemy_strength, player_health)
+            if player_health <= 0 or enemy_health <= 0:
+                break
+            attack_type = input("Choose action: s - simple attack, h - heavy attack")
             enemy_health, player_health = player_attack(player_strength, player_health, enemy_agility, enemy_level,
                                                         enemy_health, player_character, first_attack, attack_type)
+            if player_health <= 0 or enemy_health <= 0:
+                break
 
     if player_health <= 0:
         print("You have lost the fight! Lives - 1")
@@ -162,3 +170,4 @@ def hit_result(hit_chance):
         return False
     else:
         return True
+
