@@ -170,3 +170,6 @@ def hit_result(hit_chance):
         return False
     else:
         return True
+
+def testowa():
+    pass
