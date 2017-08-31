@@ -1,37 +1,46 @@
-def movement(board, player_x, player_y, current_tile=""):
-    board[3][3] = "X"
+def movement(direction, coordinates, board, current_tile):
+    position_y = coordinates[0]
+    position_x = coordinates[1]
+    board[position_y][position_x] = current_tile
+    if direction == "w":
+        position_y -= 1
+    elif direction == "s":
+        position_y += 1
+    elif direction == "a":
+        position_x -= 1
+    elif direction == "d":
+        position_x += 1
+    position_y, position_x, board, enemy = check_tile_and_move(position_y, position_x, board, direction)
+    coordinates[0] = position_y
+    coordinates[1] = position_x
+    return coordinates, board, enemy
+
+
+def check_tile_and_move(position_y, position_x, board, direction):
     blocking_tiles = ["X"]
-    if current_tile == "":
-        current_tile = board[player_y][player_x]
-    board[player_y][player_x] = "@"
-    for line in board:
-        print("".join(line))
-    move = input()
-    if move == "w":
-        if board[player_y - 1][player_x] in blocking_tiles:
-            print("Error, blocking tile")
-            movement(board, player_x, player_y, current_tile)
-        board[player_y][player_x] = current_tile
-        player_y -= 1
-        movement(board, player_x, player_y)
-    if move == "s":
-        if board[player_y + 1][player_x] in blocking_tiles:
-            print("Error, blocking tile")
-            movement(board, player_x, player_y, current_tile)
-        board[player_y][player_x] = current_tile
-        player_y += 1
-        movement(board, player_x, player_y)
-    if move == "a":
-        if board[player_y][player_x - 1] in blocking_tiles:
-            print("Error, blocking tile")
-            movement(board, player_x, player_y, current_tile)
-        board[player_y][player_x] = current_tile
-        player_x -= 1
-        movement(board, player_x, player_y)
-    if move == "d":
-        if board[player_y][player_x + 1] in blocking_tiles:
-            print("Error, blocking tile")
-            movement(board, player_x, player_y, current_tile)
-        board[player_y][player_x] = current_tile
-        player_x += 1
-        movement(board, player_x, player_y)
+    enemies = ["W", "K", "O", "o"]
+
+    if board[position_y][position_x] in blocking_tiles:
+        print("Error, blocking tile")
+        if direction == "w":
+            position_y += 1
+        elif direction == "s":
+            position_y -= 1
+        elif direction == "a":
+            position_x += 1
+        elif direction == "d":
+            position_x -= 1
+        return position_y, position_x, board, ""
+
+    elif board[position_y][position_x] in enemies:
+        enemy = board[position_y][position_x]
+        if enemy == "W":
+            return position_y, position_x, board, "wolf"
+        elif enemy == "K":
+            return position_y, position_x, board, "knight"
+        elif enemy == "O":
+            return position_y, position_x, board, "ogre"
+        elif enemy == "o":
+            return position_y, position_x, board, "orc"
+    else:
+        return position_y, position_x, board, ""
