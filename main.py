@@ -13,17 +13,17 @@ if __name__ == "__main__":
     stats = character_creator.character_creation()
     width = 60
     height = 20
-    board = maps.create_board(width, height)
+    board = maps.create_board_from_string()
     lives = 3
     coordinates = []
-    coordinates.append(0)
-    coordinates.append(0)
+    coordinates.append(13)
+    coordinates.append(1)
     direction = ""
     board[3][3] = "X"
     board[4][3] = "K"
     while lives > 0:
         os.system('clear')
-        current_tile = " "
+        current_tile = "."
         board[coordinates[0]][coordinates[1]] = "@"
         for line in board:
             print("".join(line))
