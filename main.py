@@ -1,6 +1,7 @@
 import Movement
 import Maps
 
+
 def main():
     width = 60
     height = 20

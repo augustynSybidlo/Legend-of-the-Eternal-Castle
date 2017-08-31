@@ -5,3 +5,5 @@ def create_board(width, height):
     for i in range(height):
         board.append(list(width_of_board))
     return board
+
+map_1 = '''
