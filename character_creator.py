@@ -1,23 +1,23 @@
 def character_creation():
     stats = []
     while True:
-        print(""" 
+        print("""
            Choose your character class:
 
            Class:               Warrior (type "w")         Assassin (type "a")
-           Strength:               5                       3   
+           Strength:               5                       3
            Agility :               4                       6
            Vitality:               20                      18
            Special ability: Adds 1 to every attack     May attempt to assassinate
                             dice roll                  if he is the one attacking first
                                                        Then his first attack will couse
-                                                       double damage and cannot be blocked 
+                                                       double damage and cannot be blocked
 
            Class:                Looter  (type "l")        Knight (type "k")
            Strength:               3                       4
            Agility                 5                       3
            Vitality                18                      24
-           Special ability:   May use 2 weapons        May use two pieces of armor 
+           Special ability:   May use 2 weapons        May use two pieces of armor
                               at the same time         at the same time""")
         character_class = input("Select your character class (w,a,l,k): ")
         if character_class == "w":
