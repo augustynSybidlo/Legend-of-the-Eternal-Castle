@@ -16,7 +16,7 @@ def add_to_inventory(inventory):
 
 
 def show_inventory(inventory):
-    weight_of_items, inventory = add_to_inventory(inventory)
+    weight_of_items = 0
     width_1 = 7
     width_2 = 10
     width_3 = 35
@@ -25,13 +25,4 @@ def show_inventory(inventory):
     for element in inventory:
         print(str(element[2]).ljust(width_1), element[1].ljust(width_2), element[0].ljust(width_3))
     print("Total weight of items: %d".rjust(width_3) % weight_of_items)
-
-
-def main(run=1):
-    if run == 0:
-        inventory = []
-    # if run != 0:
-    add_to_inventory(inventory)
-    show_inventory(inventory)
-
-main(0)
+    input("Type anything to exit.")
