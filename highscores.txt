@@ -1,0 +1,3 @@
+Nie,340,Warrior,level:5
+Podam,320,Knight,level:6
+Imienia,300,Assassin,level:4

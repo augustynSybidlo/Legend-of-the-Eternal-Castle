@@ -27,6 +27,7 @@ def import_highscores(file_name="highscores.txt"):
 
 
 def show_highscores_and_play_again(highscores):
+    os.system("clear")
     while True:
         action = input("h - highscores, p - play again, e - exit: ")
         if action == "p":
@@ -70,10 +71,11 @@ def main():
         for line in board:
             print("".join(line))
         print("w/s/a/d for moving, i - show inventory, c - show stats, e-exit " )
-        direction = input()
+        direction = getch()
         if direction == "e":
             exit("Sad to see you go.")
         elif direction == "i":
+            os.system(clear)
             inventory.show_inventory(inventory_items)
         elif direction == "c":
             character_creator.show_stats_and_level_up(stats)
@@ -91,6 +93,7 @@ def main():
             input("Type anything to continue...")
         elif enemy == "=":
             while True:
+                os.system("clear")
                 print("""
                 To get into the castle, first you must solve this riddle:
                 

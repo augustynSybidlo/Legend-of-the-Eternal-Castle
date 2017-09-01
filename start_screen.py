@@ -38,6 +38,14 @@ Movement:
                 w = move up
 a = move left   s = move down   d = move right
 
+Enemies:
+
+W -wolf K - knight O-ogre o - orc
+
+Special tiles:
+
+$- chest
+
 Interaction:               Weapons:                        Armor:
 i = show inventory         Give you random damage bonus:   Gives you a chance to deflect enemy attack:
                            Sword 1-8                       Breastplate - 40%
