@@ -9,15 +9,12 @@ def random_item_generator(items):
 def main():
     items = [
         ["Sword", "Weapon", 15],
-        ["Bow", "Weapon", 5],
-        ["Health Potion", "Potion", 1],
-        ["Spear", "Weapon", 20],
-        ["Long Bow", "Weapon", 10],
-        ["Heavy Sword", "Weapon", 25],
-        ["Armor", "Defence", 40],
-        ["Shield", "Defence", 20],
-        ["Big Health Potion", "Potion", 2],
-        ["Helmet", "Defence", 15]
+        ["Axe", "Weapon", 10],
+        ["Knife", "Weapon", 5],
+        ["Mace", "Weapon", 15],
+        ["Breastplate", "Armor", 40],
+        ["Shield", "Armor", 20],
+        ["Helmet", "Armor", 15]
     ]
     item = random_item_generator(items)
     items.remove(item)

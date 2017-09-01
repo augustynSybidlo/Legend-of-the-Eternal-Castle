@@ -2,7 +2,6 @@ import random
 
 
 def generate_unique_number():
-
     unique_number_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     guess_numbers = []
     while len(guess_numbers) < 3:
@@ -34,7 +33,7 @@ def compare_user_answer(guess, correct_answer):
     return hints
 
 
-def main():
+def main(score):
     user_guesses = 10
     correct_answer = generate_unique_number()
     print(correct_answer)
@@ -43,7 +42,8 @@ def main():
         feedback = compare_user_answer(user_input, correct_answer)
         print(feedback)
         if feedback == ['hot', 'hot', 'hot']:
-            return True
+            score += user_guesses * 10
+            return True, score
         user_guesses -= 1
-    return False
+    return False, score
 

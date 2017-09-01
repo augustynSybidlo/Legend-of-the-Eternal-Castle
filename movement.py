@@ -18,8 +18,8 @@ def movement(direction, coordinates, board, current_tile):
 
 
 def check_tile_and_move(position_y, position_x, board, direction):
-    blocking_tiles = ["X", "|", "_", "#", "/"]
-    enemies = ["W", "K", "O", "o", "D"]
+    blocking_tiles = ["X", "|", "_", "#", "/", "^"]
+    enemies = ["W", "K", "O", "o", "D", "=", "$"]
 
     if board[position_y][position_x] in blocking_tiles:
         print("Error, blocking tile")
@@ -45,6 +45,10 @@ def check_tile_and_move(position_y, position_x, board, direction):
             return position_y, position_x, board, "orc"
         if enemy == "D":
             return position_y, position_x, board, "D"
+        if enemy == "=":
+            return position_y, position_x, board, "="
+        if enemy == "$":
+            return position_y, position_x, board, "$"
 
     else:
         return position_y, position_x, board, ""

@@ -33,17 +33,23 @@ start_screen = '''
                             castle and kill the dwarf! Release our kingdom.'''
 
 
-how_to_play = '''\nMovement:
+how_to_play = """
+Movement:
                 w = move up
 a = move left   s = move down   d = move right
 
-Interaction:
-i = show inventory
+Interaction:               Weapons:                        Armor:
+i = show inventory         Give you random damage bonus:   Gives you a chance to deflect enemy attack:
+                           Sword 1-8                       Breastplate - 40%
+Combat:                    Mace 1-6                        Shield - 30%     
+s = simple attack          Axe  1-5                        Helmet - 10%
+h = heavy attack           Knife 1-3
+                            
+Characters can use only one weapon and one pice of armor with an exception of Warrior (2 weapons)
+and Looter (2 pices of armor)
+You can't use 2 pices of the same armor
 
-Combat:
-s = simple attack
-h = heavy attack'''  # sterowanie
-
+Other commands appear at the terminal when you avaliable."""
 
 def main():
     print(start_screen)
@@ -56,6 +62,9 @@ How to play: c  ''')
             elif start == 'c':
                 os.system('clear')
                 print(how_to_play)
+            elif start == "a":
+                print(about)
+            
         except:
             print("Wrong input! Only s/c characters available")
 

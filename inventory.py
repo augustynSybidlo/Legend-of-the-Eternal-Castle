@@ -9,10 +9,11 @@ def add_to_inventory(inventory):
         weight_of_inventory += i[2]
     weight_of_inventory += new_item[2]
     if weight_of_inventory >= max_weight_of_inventory:
-        print("You have not enought space in your inventory!")
+        print("You can't carry this item (inventory too heavy)")
     else:
         inventory.append(new_item)
-    return weight_of_inventory, inventory
+    print("You have picked up: ", new_item[0])
+    return inventory
 
 
 def show_inventory(inventory):

@@ -51,3 +51,47 @@ def character_creation():
         else:
             print("Please type one of following latters: w,a,l,k to choose your characters class")
     return stats
+
+
+def show_stats_and_level_up(stats, level_up=False):
+    print("Current stats: \n", )
+    if stats[4] == "w":
+        character_class = "Warrior"
+    elif stats[4] == "a":
+        character_class = "Assassin"
+    elif stats[4] == "l":
+        character_class = "Looter"
+    elif stats[4] == "k":
+        character_class = "Knight"
+    print("character class: ", character_class, "Level: ", str(stats[3]), "\n Strength: ", str(stats[0]), "\n Agility: "
+          ,str(stats[1]), "\n Vitality: ", str(stats[2]))
+    if level_up:
+        stats[3] += 1
+        for x in range(3):
+            while True:
+                improve = input("Which statistic would you like to improve? s - strength, a - agility, v - vitality")
+                if improve == "s":
+                    stats[0] += 1
+                    print("Current stats: \n", )
+                    print("character class: ", character_class, "Level: ", str(stats[3]), "\n Strength: ",
+                          str(stats[0]), "\n Agility: "
+                          , str(stats[1]), "\n Vitality: ", str(stats[2]))
+                    break
+                elif improve == "a":
+                    stats[1] += 1
+                    print("Current stats: \n", )
+                    print("character class: ", character_class, "Level: ", str(stats[3]), "\n Strength: ",
+                          str(stats[0]), "\n Agility: "
+                          , str(stats[1]), "\n Vitality: ", str(stats[2]))
+                    stats[1] += 1
+                    break
+                elif improve == "v":
+                    stats[2] += 4
+                    print("Current stats: \n", )
+                    print("character class: ", character_class, "Level: ", str(stats[3]), "\n Strength: ",
+                          str(stats[0]), "\n Agility: "
+                          , str(stats[1]), "\n Vitality: ", str(stats[2]))
+        input("Press anything to close...")
+        return stats
+    input("Press anything to close...")
+    return stats
